@@ -1,0 +1,6 @@
+username password role
+admin admin123 admin
+shadira shadira123 user
+marsya marsya123 user
+khalish khalish123 user
+alex alex123 user 

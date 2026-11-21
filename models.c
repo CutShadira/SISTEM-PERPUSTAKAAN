@@ -238,3 +238,19 @@ static int muatUser(void)
     fclose(f);
     return 1; // menandakan berhasil
 }
+// Membaca data peminjaman dari file
+static int muatPinjam(void)
+{
+    FILE *f = fopen(FILE_PINJAM, "r");
+
+    char baris[256];
+    char id[32];
+
+    int pos;
+    Peminjaman pj;
+
+    // Jika file belum ada, anggap belum ada transaksi
+    if (f == NULL)
+    {
+        return 1;
+    }

@@ -31,3 +31,27 @@ static int ambilKata(char *teks, int *pos, char *hasil, int maks)
     {
         return 0;
     }
+    // Periksa apakah kata menggunakan tanda petik
+    if (teks[*pos] == '"')
+    {
+        (*pos)++;
+
+        // Ambil teks sampai menemukan tanda petik penutup
+        while (teks[*pos] != '"' && teks[*pos] != '\0' &&
+               teks[*pos] != '\n' && teks[*pos] != '\r')
+        {
+
+            if (i < maks - 1)
+            {
+                hasil[i++] = teks[*pos];
+            }
+
+            (*pos)++;
+        }
+
+        // Lewati tanda petik penutup
+        if (teks[*pos] == '"')
+        {
+            (*pos)++;
+        }
+    }

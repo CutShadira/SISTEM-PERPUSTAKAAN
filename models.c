@@ -166,3 +166,30 @@ static int muatBuku(void)
             {
                 continue;
             }
+            // Ubah teks menjadi angka
+            b.year = atoi(tahun);
+            b.page_count = atoi(halaman);
+
+            // Ambil stok buku
+            if (ambilKata(baris, &pos, stok, sizeof(stok)))
+            {
+                b.stok = atoi(stok);
+            }
+            else
+            {
+                b.stok = STOK_AWAL;
+            }
+
+            // Simpan buku ke memori
+            if (!tambahBukuKeMemori(b))
+            {
+                printf("Memori tidak cukup.\n");
+                fclose(f);
+                return 0;
+            }
+        }
+    }
+
+    fclose(f);
+    return 1;
+}

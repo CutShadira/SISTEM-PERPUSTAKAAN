@@ -21,6 +21,12 @@ static int bandingkan(const Buku *a, const Buku *b, int kriteria) {
             return bandingkanTeks(a->ocaid, b->ocaid);
         case URUT_JUDUL:
             return bandingkanTeks(a->title, b->title);
+        case URUT_TAHUN:
+            return a->year - b->year;
+        case URUT_HALAMAN:
+            return a->page_count - b->page_count;
+        case URUT_STOK:
+            return a->stok - b->stok;
     }
     return 0;
 }

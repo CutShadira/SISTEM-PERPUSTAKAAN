@@ -14,8 +14,10 @@
 #define NAIK 1
 #define TURUN 2
 
+/* banding dua teks tanpa melihat huruf besar/kecil */
 int bandingkanTeks(const char *a, const char *b);
 
+/* return 1 kalau a harus berada setelah b (urutannya terbalik) */
 int harusTukar(const Buku *a, const Buku *b, int kriteria, int arah);
 
 #endif

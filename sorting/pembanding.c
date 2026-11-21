@@ -1,6 +1,7 @@
 #include <ctype.h>
 #include "pembanding.h"
 
+/* membandingkan dua teks tanpa membedakan huruf besar atau kecil */
 int bandingkanTeks(const char *a, const char *b) {
     while (*a != '\0' && *b != '\0') {
         int x = tolower((unsigned char) *a);
@@ -15,6 +16,7 @@ int bandingkanTeks(const char *a, const char *b) {
     return tolower((unsigned char) *a) - tolower((unsigned char) *b);
 }
 
+/* hasil negatif: a lebih kecil dari b, positif: a lebih besar dari b */
 static int bandingkan(const Buku *a, const Buku *b, int kriteria) {
     switch (kriteria) {
         case URUT_ID:
@@ -31,6 +33,7 @@ static int bandingkan(const Buku *a, const Buku *b, int kriteria) {
     return 0;
 }
 
+/* menentukan apakah dua buku a dan b harus ditukar berdasarkan kriteria dan arah pengurutan */
 int harusTukar(const Buku *a, const Buku *b, int kriteria, int arah) {
     int hasil = bandingkan(a, b, kriteria);
 

@@ -30,3 +30,12 @@ static int bandingkan(const Buku *a, const Buku *b, int kriteria) {
     }
     return 0;
 }
+
+int harusTukar(const Buku *a, const Buku *b, int kriteria, int arah) {
+    int hasil = bandingkan(a, b, kriteria);
+
+    if (arah == NAIK) {
+        return hasil > 0;
+    }
+    return hasil < 0;
+}

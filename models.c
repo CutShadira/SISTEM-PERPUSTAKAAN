@@ -330,3 +330,16 @@ void simpanBuku(void)
 
     fclose(f);
 }
+// Menyimpan data peminjaman ke file
+void simpanPinjam(void)
+{
+    FILE *f = fopen(FILE_PINJAM, "w");
+    int i;
+
+    if (f == NULL)
+    {
+        printf("Gagal menulis %s\n", FILE_PINJAM);
+        return;
+    }
+
+    fprintf(f, "id_peminjaman username ocaid tanggal_pinjam status\n");

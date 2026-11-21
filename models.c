@@ -55,3 +55,26 @@ static int ambilKata(char *teks, int *pos, char *hasil, int maks)
             (*pos)++;
         }
     }
+    else
+    {
+
+        // Ambil kata biasa sampai menemukan spasi
+        while (teks[*pos] != ' ' && teks[*pos] != '\t' &&
+               teks[*pos] != '\0' && teks[*pos] != '\n' &&
+               teks[*pos] != '\r')
+        {
+
+            if (i < maks - 1)
+            {
+                hasil[i++] = teks[*pos];
+            }
+
+            (*pos)++;
+        }
+    }
+
+    // Akhiri string
+    hasil[i] = '\0';
+
+    return 1;
+}

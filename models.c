@@ -144,3 +144,25 @@ static int muatBuku(void)
         printf("File %s tidak ditemukan.\n", FILE_BUKU);
         return 0;
     }
+    while (fgets(baris, sizeof(baris), f) != NULL) // fgets(variabel_tujuan, ukuran_maksimal, file);
+    {
+
+        // Mulai membaca dari karakter pertama
+        // Karena setiap kali membaca baris baru, kita harus memulai pengambilan kata dari karakter pertama.
+        pos = 0;
+
+        if (ambilKata(baris, &pos, b.ocaid, sizeof(b.ocaid)) &&
+            ambilKata(baris, &pos, b.title, sizeof(b.title)) &&
+            ambilKata(baris, &pos, b.author, sizeof(b.author)) &&
+            ambilKata(baris, &pos, tahun, sizeof(tahun)) &&
+            ambilKata(baris, &pos, halaman, sizeof(halaman)) &&
+            ambilKata(baris, &pos, b.openlibrary_edition, sizeof(b.openlibrary_edition)) &&
+            ambilKata(baris, &pos, b.openlibrary_work, sizeof(b.openlibrary_work)) &&
+            ambilKata(baris, &pos, b.full_text_url, sizeof(b.full_text_url)))
+        {
+
+            // Lewati baris judul kolom
+            if (strcmp(b.ocaid, "ocaid") == 0)
+            {
+                continue;
+            }

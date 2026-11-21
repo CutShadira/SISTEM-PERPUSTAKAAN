@@ -78,3 +78,21 @@ static int ambilKata(char *teks, int *pos, char *hasil, int maks)
 
     return 1;
 }
+// Menambahkan buku ke dalam memori
+int tambahBukuKeMemori(Buku b)
+{
+    Buku *baru = realloc(dataBuku, (jumlahBuku + 1) * sizeof(Buku)); // realloc(pointer, ukuran_baru); => digunakan untuk mengubah ukuran memori yang sebelumnya sudah dialokasikan secara dinamis.
+
+    // jika null maka berarti gagal mendapatkan memori
+    if (baru == NULL)
+    {
+        return 0;
+    }
+
+    // jika berhasil maka perbarui dataBuku
+    dataBuku = baru;
+    dataBuku[jumlahBuku] = b;
+    jumlahBuku++;
+
+    return 1;
+}

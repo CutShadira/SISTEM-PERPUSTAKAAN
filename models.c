@@ -355,3 +355,20 @@ void simpanPinjam(void)
 
     fclose(f);
 }
+// Membebaskan semua memori yang digunakan
+void bebaskanSemuaData(void)
+{
+    // realloc() untuk menambah kapasitas penyimpanan data buku. Ketika data tersebut sudah tidak diperlukan, memorinya bisa dibebaskan menggunakan free().
+    free(dataBuku);
+    free(dataUser);
+    free(dataPinjam);
+
+    // mengatur pointer dataBuku, dataUser, dan dataPinjam menjadi NULL, supaya tidak menyimpan alamat lama yang sudah tidak boleh digunakan.
+    dataBuku = NULL;
+    dataUser = NULL;
+    dataPinjam = NULL;
+
+    jumlahBuku = 0;
+    jumlahUser = 0;
+    jumlahPinjam = 0;
+}

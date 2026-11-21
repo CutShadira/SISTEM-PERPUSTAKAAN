@@ -208,3 +208,33 @@ static int muatUser(void)
         printf("File %s tidak ditemukan.\n", FILE_USER);
         return 0;
     }
+    while (fgets(baris, sizeof(baris), f) != NULL)
+    {
+
+        // Mulai dari karakter pertama
+        pos = 0;
+
+        if (ambilKata(baris, &pos, u.username, sizeof(u.username)) &&
+            ambilKata(baris, &pos, u.password, sizeof(u.password)) &&
+            ambilKata(baris, &pos, u.role, sizeof(u.role)))
+        {
+
+            // Lewati baris judul kolom
+            if (strcmp(u.username, "username") == 0)
+            {
+                continue;
+            }
+
+            // Simpan user ke memori
+            if (!tambahUserKeMemori(u))
+            {
+                printf("Memori tidak cukup.\n");
+                fclose(f);
+                return 0;
+            }
+        }
+    }
+
+    fclose(f);
+    return 1; // menandakan berhasil
+}

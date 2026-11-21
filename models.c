@@ -96,3 +96,19 @@ int tambahBukuKeMemori(Buku b)
 
     return 1;
 }
+// Menambahkan user ke dalam memori
+static int tambahUserKeMemori(User u)
+{
+    User *baru = realloc(dataUser, (jumlahUser + 1) * sizeof(User));
+
+    if (baru == NULL)
+    {
+        return 0;
+    }
+
+    dataUser = baru;
+    dataUser[jumlahUser] = u;
+    jumlahUser++;
+
+    return 1;
+}

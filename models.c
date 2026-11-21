@@ -128,3 +128,19 @@ int tambahPinjamKeMemori(Peminjaman p)
 
     return 1;
 }
+// Membaca data buku dari file
+static int muatBuku(void)
+{
+    FILE *f = fopen(FILE_BUKU, "r");
+
+    char baris[2048];
+    char tahun[32], halaman[32], stok[32];
+
+    int pos; // menyimpan posisi karakter yang sedang dibaca
+    Buku b;  // untuk menampung data buku sementara
+
+    if (f == NULL)
+    {
+        printf("File %s tidak ditemukan.\n", FILE_BUKU);
+        return 0;
+    }

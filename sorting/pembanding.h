@@ -14,4 +14,8 @@
 #define NAIK 1
 #define TURUN 2
 
+int bandingkanTeks(const char *a, const char *b);
+
+int harusTukar(const Buku *a, const Buku *b, int kriteria, int arah);
+
 #endif

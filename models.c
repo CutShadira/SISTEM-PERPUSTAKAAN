@@ -112,3 +112,19 @@ static int tambahUserKeMemori(User u)
 
     return 1;
 }
+// Menambahkan peminjaman ke dalam memori
+int tambahPinjamKeMemori(Peminjaman p)
+{
+    Peminjaman *baru = realloc(dataPinjam, (jumlahPinjam + 1) * sizeof(Peminjaman));
+
+    if (baru == NULL)
+    {
+        return 0;
+    }
+
+    dataPinjam = baru;
+    dataPinjam[jumlahPinjam] = p;
+    jumlahPinjam++;
+
+    return 1;
+}

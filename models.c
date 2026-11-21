@@ -193,3 +193,18 @@ static int muatBuku(void)
     fclose(f);
     return 1;
 }
+// Membaca data user dari file
+static int muatUser(void)
+{
+    FILE *f = fopen(FILE_USER, "r");
+
+    char baris[256];
+    int pos;
+
+    User u;
+
+    if (f == NULL)
+    {
+        printf("File %s tidak ditemukan.\n", FILE_USER);
+        return 0;
+    }

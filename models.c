@@ -343,3 +343,15 @@ void simpanPinjam(void)
     }
 
     fprintf(f, "id_peminjaman username ocaid tanggal_pinjam status\n");
+    for (i = 0; i < jumlahPinjam; i++)
+    {
+        fprintf(f, "%u %s %s %s %s\n",
+                dataPinjam[i].id_peminjaman,
+                dataPinjam[i].username,
+                dataPinjam[i].ocaid,
+                dataPinjam[i].tanggal_pinjam,
+                dataPinjam[i].status);
+    }
+
+    fclose(f);
+}

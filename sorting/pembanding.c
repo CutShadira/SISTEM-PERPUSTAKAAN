@@ -14,3 +14,13 @@ int bandingkanTeks(const char *a, const char *b) {
     }
     return tolower((unsigned char) *a) - tolower((unsigned char) *b);
 }
+
+static int bandingkan(const Buku *a, const Buku *b, int kriteria) {
+    switch (kriteria) {
+        case URUT_ID:
+            return bandingkanTeks(a->ocaid, b->ocaid);
+        case URUT_JUDUL:
+            return bandingkanTeks(a->title, b->title);
+    }
+    return 0;
+}
